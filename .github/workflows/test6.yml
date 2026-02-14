@@ -1,0 +1,101 @@
+name: test6-matrix
+
+on:
+  workflow_dispatch:
+    inputs:
+      max_prompts_per_session:
+        description: "Max prompts per worker (0 = unlimited)"
+        required: false
+        default: "200"
+      prompt_engine:
+        description: "PROMPT_ENGINE (chatgpt)"
+        required: false
+        default: "chatgpt"
+      prompt_only_today:
+        description: "Pick only today's prompts (1/0)"
+        required: false
+        default: "1"
+      sse_body_timeout_s:
+        description: "Timeout (seconds) for Playwright response body capture"
+        required: false
+        default: "240"
+      max_browser_restarts:
+        description: "Max browser restarts per worker"
+        required: false
+        default: "10"
+
+concurrency:
+  group: test6-matrix-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  run-test6:
+    name: worker-${{ matrix.worker }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        worker:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 10
+          - 11
+          - 12
+          - 13
+          - 14
+          - 15
+          - 16
+          - 17
+          - 18
+          - 19
+          - 20
+
+    env:
+      PYTHONUNBUFFERED: "1"
+      PROMPT_ENGINE_ACCOUNT: github-actions-${{ github.run_id }}-${{ matrix.worker }}
+      PROMPT_ENGINE: ${{ inputs.prompt_engine }}
+      MAX_PROMPTS_PER_SESSION: ${{ inputs.max_prompts_per_session }}
+      PROMPT_ONLY_TODAY: ${{ inputs.prompt_only_today }}
+      SSE_BODY_TIMEOUT_S: ${{ inputs.sse_body_timeout_s }}
+      MAX_BROWSER_RESTARTS: ${{ inputs.max_browser_restarts }}
+
+      # Required
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
+      # Optional (set if your code needs them)
+      CHATGPT_PROXY: ${{ secrets.CHATGPT_PROXY }}
+      BOOMLIFY_API_KEY: ${{ secrets.BOOMLIFY_API_KEY }}
+      BOOMLIFY_BASE_URL: ${{ secrets.BOOMLIFY_BASE_URL }}
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install OS deps
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y xvfb
+
+      - name: Install Python deps
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+          python -m pip install playwright==1.58.0 mycdp
+
+      - name: Run worker
+        run: |
+          xvfb-run -a python test6.py
