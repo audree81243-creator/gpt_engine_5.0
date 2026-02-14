@@ -1,0 +1,85 @@
+event: delta_encoding
+data: "v1"
+
+event: delta
+data: {"p": "", "o": "add", "v": {"message": {"id": "04c7b815-bb1f-4872-b103-b61b241f15dd", "author": {"role": "system", "name": null, "metadata": {}}, "create_time": null, "update_time": null, "content": {"content_type": "text", "parts": [""]}, "status": "finished_successfully", "end_turn": true, "weight": 0.0, "metadata": {"is_visually_hidden_from_conversation": true, "model_switcher_deny": []}, "recipient": "all", "channel": null}, "conversation_id": "698cd378-7b40-8322-9467-4783d96fba39", "error": null, "error_code": null}, "c": 0} 
+
+event: delta
+data: {"v": {"message": {"id": "83c14c38-ba19-4525-9dcd-d92ee9440c52", "author": {"role": "user", "name": null, "metadata": {}}, "create_time": 1770836851.617, "update_time": null, "content": {"content_type": "text", "parts": ["latest NVIDIA earnings"]}, "status": "finished_successfully", "end_turn": null, "weight": 1.0, "metadata": {"system_hints": [], "request_id": "1c4dc4c4-6a52-4272-92b3-b3a05dd81917", "message_source": "instant-query", "turn_exchange_id": "07d8fcd6-35c1-4c1b-beaa-9e02d72de8a1", "resolved_model_slug": "i-mini", "model_switcher_deny": []}, "recipient": "all", "channel": null}, "conversation_id": "698cd378-7b40-8322-9467-4783d96fba39", "error": null, "error_code": null}, "c": 1}    
+
+data: {"type": "input_message", "input_message": {"id": "83c14c38-ba19-4525-9dcd-d92ee9440c52", "author": {"role": "user", "name": null, "metadata": {}}, "create_time": 1770836851.617, "update_time": null, "content": {"content_type": "text", "parts": ["latest NVIDIA earnings"]}, "status": "finished_successfully", "end_turn": null, "weight": 1.0, "metadata": {"system_hints": [], "request_id": "1c4dc4c4-6a52-4272-92b3-b3a05dd81917", "message_source": "instant-query", "turn_exchange_id": "07d8fcd6-35c1-4c1b-beaa-9e02d72de8a1", "turn_trace_id": "d8457452-b44c-4f4b-a0a6-4fec07ecbf4b", "useragent": {"client_type": "web", "is_mobile": false, "is_mobile_app": false, "is_desktop_app": false, "is_native_app": false, "is_native_app_apple": false, "is_mobile_app_ios": false, "is_desktop_app_macos": false, "is_aura_app_macos": false, "is_aura_web": false, "is_sora_ios": false, "is_agora_ios": false, "is_agora_android": false, "is_desktop_app_windows": false, "is_electron_app": false, "is_mobile_app_android": false, "is_mobile_web": false, "is_mobile_web_ios": false, "is_mobile_web_android": false, "is_ios": false, "is_android": false, "is_macos": false, "is_windows": false, "is_linux": true, "is_chatgpt_client": false, "is_sora_client": false, "is_agora_client": false, "is_browserbased_app": true, "is_chatgpt_api": false, "is_slack": false, "is_chatkit_web": false, "is_chatkit_synthetic": false, "is_kakao_talk": false, "is_codex_desktop": false, "app_version": null, "build_number": null, "user_agent": "mozilla/5.0 (x11; linux x86_64) applewebkit/537.36 (khtml, like gecko) chrome/144.0.0.0 safari/537.36", "app_environment": null, "os_version": null, "device_model": null, "user_client_type": "desktop_web"}, "paragen_stream_type": "default", "resolved_model_slug": "i-mini", "parent_id": "04c7b815-bb1f-4872-b103-b61b241f15dd"}, "recipient": "all", "channel": null}, "conversation_id": "698cd378-7b40-8322-9467-4783d96fba39"}
+
+event: delta
+data: {"v": {"message": {"id": "36f35715-7fbf-4020-a62d-e1e21fb69dc3", "author": {"role": "assistant", "name": null, "metadata": {}}, "create_time": 1770836856.676161, "update_time": null, "content": {"content_type": "text", "parts": [""]}, "status": "in_progress", "end_turn": null, "weight": 1.0, "metadata": {"citations": [], "content_references": [], "resolved_model_slug": "i-mini", "request_id": "1c4dc4c4-6a52-4272-92b3-b3a05dd81917", "message_type": "next", "model_slug": "gpt-5-2", "default_model_slug": "auto", "parent_id": "83c14c38-ba19-4525-9dcd-d92ee9440c52", "turn_exchange_id": "07d8fcd6-35c1-4c1b-beaa-9e02d72de8a1", "model_switcher_deny": []}, "recipient": "all", "channel": null}, "conversation_id": "698cd378-7b40-8322-9467-4783d96fba39", "error": null, "error_code": null}, "c": 2}    
+
+data: {"type": "message_marker", "conversation_id": "698cd378-7b40-8322-9467-4783d96fba39", "message_id": "36f35715-7fbf-4020-a62d-e1e21fb69dc3", "marker": "user_visible_token", "event": "first"}
+
+event: delta
+data: {"p": "/message/content/parts/0", "o": "append", "v": "NVIDIA's"}       
+
+event: delta
+data: {"v": " most recent earnings report for **"}    
+
+event: delta
+data: {"v": "Q3 FY2024** (ended October 29, 2023) was released on **November 21"}     
+
+event: delta
+data: {"v": ", 2023**. Here's a summary of the key highlights:\n\n### **Q3 FY2024 Results:**\n- **Revenue:** $22."}   
+
+event: delta
+data: {"v": "10 billion (up 101% year-over-year).\n- **GAAP Net Income:** $9.21 billion (up 143%"}    
+
+event: delta
+data: {"v": " YoY).\n- **Earnings Per Share (EPS):** $4.09 (up 142% YoY).\n- **Gross Margin"} 
+
+event: delta
+data: {"v": ":** 71.2% (up from 57.1% Yo"}    
+
+event: delta
+data: {"v": "Y).\n\n### **Key Segments:**\n1. **Data Center"} 
+
+event: delta
+data: {"v": " Revenue:** $15.58 billion (up 171% YoY), driven by strong demand for AI-related products and services, including GPUs for"}     
+
+event: delta
+data: {"v": " AI training and inference.\n2. **Gaming Revenue:** $3.62 billion (up 16% YoY), benefiting from"}
+
+event: delta
+data: {"v": " strong sales of graphics cards and gaming laptops, especially as more gamers adopted"}  
+
+event: delta
+data: {"v": " NVIDIA\u2019s latest RTX GPUs.\n3. **Automotive Revenue:** $381 million (up 86% YoY), reflecting growth in AI"} 
+
+event: delta
+data: {"v": " and self-driving automotive systems.\n4. **Professional Visualization:** $1.27 billion (up 29% YoY).\n5. **"}   
+
+event: delta
+data: {"v": "OEM and Other:** $503 million (up 5% YoY).\n\n### **AI Demand:**\nNVIDIA has continued to see explosive"}
+
+event: delta
+data: {"v": " demand driven by AI, particularly in the fields of generative AI and large language"}   
+
+event: delta
+data: {"v": " models (LLMs). This has contributed to the company's remarkable growth, especially in data center sales.\n\n### **Guidance for Q4"}     
+
+event: delta
+data: {"v": " FY2024:**\nNVIDIA issued strong guidance for the next quarter (Q4 FY2024):\n- **Revenue Outlook:** Around $"}   
+
+event: delta
+data: {"v": "23.5 billion (plus or minus 2%).\n- The company anticipates continued growth in its data center and gaming sectors, driven"}     
+
+event: delta
+data: {"v": " by the ongoing boom in AI and the expansion of cloud-based AI services.\n\nNVIDIA's stock has been heavily influenced by the AI boom, and"}     
+
+event: delta
+data: {"v": " these results solidified its position as a dominant player in the space.\n\n---\n\nWould you like more details on any specific segment or the"} 
+
+event: delta
+data: {"p": "", "o": "patch", "v": [{"p": "/message/content/parts/0", "o": "append", "v": " future outlook for NVIDIA?"}, {"p": "/message/status", "o": "replace", "v": "finished_successfully"}, {"p": "/message/end_turn", "o": "replace", "v": true}, {"p": "/message/metadata", "o": "append", "v": {"is_complete": true, "search_result_groups": [], "finish_details": {"type": "stop", "stop_tokens": [200002]}}}]}     
+
+data: {"type": "server_ste_metadata", "metadata": {"conduit_prewarmed": false, "plan_type": "guest", "user_agent": "web_desktop", "service": null, "tool_name": null, "tool_invoked": false, "fast_convo": true, "warmup_state": "cold", "is_first_turn": true, "cluster_region": "koreacentral", "model_slug": "i-mini", "region": null, "is_multimodal": false, "did_auto_switch_to_reasoning": false, "auto_switcher_race_winner": null, "is_autoswitcher_enabled": false, "is_search": null, "did_prompt_contain_image": false, "search_tool_call_count": null, "search_tool_query_types": null, "message_id": "36f35715-7fbf-4020-a62d-e1e21fb69dc3", "request_id": "1c4dc4c4-6a52-4272-92b3-b3a05dd81917", "turn_exchange_id": "07d8fcd6-35c1-4c1b-beaa-9e02d72de8a1", "turn_trace_id": "d8457452-b44c-4f4b-a0a6-4fec07ecbf4b", "a32e6ebcb": 2, "resume_with_websockets": false, "low_turn_topic_ttl": false, "streaming_async_status": false, "temporal_conversation_turn": false}, "conversation_id": "698cd378-7b40-8322-9467-4783d96fba39"}
+
+data: {"type": "message_stream_complete", "conversation_id": "698cd378-7b40-8322-9467-4783d96fba39"}
+
+data: [DONE]
+

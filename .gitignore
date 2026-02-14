@@ -1,0 +1,36 @@
+# Secrets / local config
+.env
+.env.*
+!.env.example
+!.env.template
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+*.so
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+
+# Runtime artifacts / downloads
+screenshots/
+downloaded_files/
+latest_logs/
+
+# Local tooling
+.claude/
+
+# Accidental Windows-path folder created under WSL
+C:Userssaumy/
+
+# Logs
+*.log
+

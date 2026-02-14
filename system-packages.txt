@@ -1,0 +1,16 @@
+google-chrome-stable
+xvfb
+libnspr4
+libnss3
+libx11-6
+libxrender1
+libxext6
+libatk-bridge2.0-0
+libgtk-3-0
+libgbm1
+fonts-liberation
+libasound2t64
+python3-tk
+python3-dev
+libpq5
+libpq-dev

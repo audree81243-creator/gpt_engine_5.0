@@ -1,0 +1,44 @@
+========================== {master.py:1439:SB} starts ==========================
+Systems green, standing by.
+
+
+[CONFIG] incognito=False user_data_dir=<none> proxy=set
+[NETWORK] Full log: /home/saumya/gpt_engine_5.0/screenshots/network_events.jsonl
+[CONVERSATION] Event log: /home/saumya/gpt_engine_5.0/screenshots/conversation_events.jsonl
+[CONVERSATION] Stream dir: /home/saumya/gpt_engine_5.0/screenshots/conversation_streams
+[CONVERSATION] Body dir: /home/saumya/gpt_engine_5.0/screenshots/conversation_bodies
+[NETWORK] Logged 1 events
+[NETWORK] Logged 2 events
+[NETWORK] Logged 3 events
+[NETWORK] Logged 4 events
+[NETWORK] Logged 5 events
+[NETWORK] Logged 100 events
+[NETWORK] Logged 200 events
+---11.0s---
+[NETWORK] Logged 300 events
+[NETWORK] Logged 400 events
+[CONVERSATION] Logged 1 events
+[CONVERSATION] Logged 2 events
+[NETWORK] Logged 500 events
+[NETWORK] Logged 600 events
+[CONVERSATION] Logged 3 events
+[CONVERSATION] Logged 4 events
+[NETWORK] Logged 700 events
+[NETWORK] Logged 800 events
+[NETWORK] Logged 900 events
+[NETWORK] Logged 1000 events
+[NETWORK] Logged 1100 events
+[CONVERSATION] Logged 5 events
+[CONVERSATION] Logged 6 events
+[CONVERSATION] Logged 7 events
+[CONVERSATION] Logged 8 events
+[CONVERSATION] Send button state (attempt 1): exists=False visible=None disabled=None
+[CONVERSATION][WARN] Send button not present in DOM. Skipping UI submit actions for this attempt.
+[CONVERSATION] Candidate buttons: [{"testid": "composer-button-search", "aria": "Search", "txt": "Search", "disabled": false, "visible": true}, {"testid": "composer-button-study", "aria": "Study", "txt": "Study", "disabled": false, "visible": true}, {"testid": "composer-button-create-image", "aria": "Create image", "txt": "Create image", "disabled": false, "visible": true}, {"testid": "send-button", "aria": "Send prompt", "txt": "", "disabled": false, "visible": true}]
+[CONVERSATION] Send button state (attempt 2): exists=False visible=None disabled=None
+[CONVERSATION][WARN] Send button not present in DOM. Skipping UI submit actions for this attempt.
+[CONVERSATION] Candidate buttons: [{"testid": "composer-button-search", "aria": "Search", "txt": "Search", "disabled": false, "visible": true}, {"testid": "composer-button-study", "aria": "Study", "txt": "Study", "disabled": false, "visible": true}, {"testid": "composer-button-create-image", "aria": "Create image", "txt": "Create image", "disabled": false, "visible": true}, {"testid": "send-button", "aria": "Send prompt", "txt": "", "disabled": false, "visible": true}]
+[CONVERSATION] Send button state (attempt 3): exists=False visible=None disabled=None
+[CONVERSATION][WARN] Send button not present in DOM. Skipping UI submit actions for this attempt.
+[CONVERSATION] Candidate buttons: [{"testid": "composer-button-search", "aria": "Search", "txt": "Search", "disabled": false, "visible": true}, {"testid": "composer-button-study", "aria": "Study", "txt": "Study", "disabled": false, "visible": true}, {"testid": "composer-button-create-image", "aria": "Create image", "txt": "Create image", "disabled": false, "visible": true}, {"testid": "send-button", "aria": "Send prompt", "txt": "", "disabled": false, "visible": true}]
+[CONVERSATION] Trying URL q= fallback: https://chatgpt.com/?temporary-chat=true&hints=search&q=Use+web+search.+Give+a+short+answer+about+the+latest+NVIDIA+earnings+and+include+at+least+2+citations+with+full+URLs.

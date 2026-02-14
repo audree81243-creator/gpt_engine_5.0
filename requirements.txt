@@ -1,0 +1,5 @@
+requests
+python-dotenv
+pip
+seleniumbase
+psycopg[binary]==3.2.9
