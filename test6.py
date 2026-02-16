@@ -663,7 +663,6 @@ if __name__ == "__main__":
                 test=True,
                 incognito=True,           # Clean session, no leftover cookies/history
                 locale="en",
-                proxy=proxy,
                 chromium_arg="--disable-blink-features=AutomationControlled",  # Remove automation flag
             ) as sb:
                 result = create_chatgpt_account(sb)
@@ -706,3 +705,4 @@ if __name__ == "__main__":
         continue
 
     print(f"\n[BROWSER] Session ended. Total restarts: {restart_count}")
+
