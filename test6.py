@@ -332,6 +332,46 @@ LIST_OF_POPUPS = [
 ]
 
 
+def apply_bandwidth_saver(sb):
+    """
+    Fixed CDP bandwidth saver (always balanced mode).
+    Blocks telemetry/tracking and heavy media/font assets.
+    """
+    telemetry_patterns = [
+        "*sentry*",
+        "*statsig*",
+        "*segment*",
+        "*doubleclick*",
+        "*google-analytics*",
+        "*googletagmanager*",
+        "*datadog*",
+        "*intercom*",
+        "*ab.chatgpt.com*",
+    ]
+
+    heavy_media_patterns = [
+        "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.ico", "*.svg",
+        "*.woff", "*.woff2", "*.ttf", "*.otf",
+        "*.mp4", "*.webm", "*.mp3", "*.wav",
+    ]
+
+    blocked_patterns = list(telemetry_patterns) + list(heavy_media_patterns)
+
+    # Deduplicate while preserving stable order.
+    blocked_patterns = list(dict.fromkeys(blocked_patterns))
+
+    try:
+        sb.driver.execute_cdp_cmd("Network.enable", {})
+        sb.driver.execute_cdp_cmd("Network.setBlockedURLs", {"urls": blocked_patterns})
+        # Keep browser cache enabled for better repeated-run efficiency.
+        sb.driver.execute_cdp_cmd("Network.setCacheDisabled", {"cacheDisabled": False})
+        print(
+            f"[BANDWIDTH] Saver enabled | level=balanced | blocked_patterns={len(blocked_patterns)}"
+        )
+    except Exception as e:
+        print(f"[BANDWIDTH] Failed to apply saver: {e}")
+
+
 def js_click_by_text(sb, text, tag="button"):
     """Click a DOM element by its text content using JavaScript.
     Bypasses CDP click issues and overlay blocking.
@@ -364,6 +404,7 @@ def create_chatgpt_account(sb):
 
     # sb.uc_open_with_reconnect(url, 4)
     sb.activate_cdp_mode("about:blank")
+    # apply_bandwidth_saver(sb)
     # Start capture BEFORE navigation so we don't miss early /f/conversation requests.
     endpoint_url=sb.cdp.get_endpoint_url()
 
@@ -504,7 +545,7 @@ def create_chatgpt_account(sb):
                 print("\n" * 3)
                 
                 enter_prompt(sb, current_prompt_text)
-                if prompt_number%10==0:
+                if prompt_number%50==0:
                     activate_search_mode(sb)
                 prompt_number=prompt_number+1
                 # Wait for the response/search to complete before the next one
@@ -579,9 +620,10 @@ def create_chatgpt_account(sb):
                         print(f"[DB] Marked prompt {current_prompt_id} as completed")
                     except Exception as e:
                         print(f"[DB] Failed to update prompt {current_prompt_id}: {e}")
-                        needs_restart = True
+                        update_prompt_result(..., status="failed", error_text="Failed to update prompt inside aws database even when answer and citations came up!")
+                        needs_restart = False
                         restart_reason = f"db_update_failed prompt_id={current_prompt_id}"
-                        break
+                        continue
                 else:
                     print(f"[DB] WARNING: No answer captured for prompt {current_prompt_id}")
                     try:
@@ -647,7 +689,14 @@ def create_chatgpt_account(sb):
 
 
 if __name__ == "__main__":
-    max_browser_restarts = int(os.getenv("MAX_BROWSER_RESTARTS", "10"))
+    max_browser_restarts = int(os.getenv("MAX_BROWSER_RESTARTS", "100"))
+    proxies = {
+   "https": ('https://user-verseodin_yJ3Ta:a1CfsHJzt3~59=@disp.oxylabs.io:8001')
+    }
+
+    response=requests.get("https://ip.oxylabs.io/location", proxies=proxies)
+
+    print(response.content)
     restart_count = 0
     while restart_count < max_browser_restarts:
         print(f"\n{'='*60}")
@@ -663,6 +712,7 @@ if __name__ == "__main__":
                 test=True,
                 incognito=True,           # Clean session, no leftover cookies/history
                 locale="en",
+                proxy="verseodin_yJ3Ta:a1CfsHJzt3~59=@disp.oxylabs.io:8001",
                 chromium_arg="--disable-blink-features=AutomationControlled",  # Remove automation flag
             ) as sb:
                 result = create_chatgpt_account(sb)
@@ -705,4 +755,3 @@ if __name__ == "__main__":
         continue
 
     print(f"\n[BROWSER] Session ended. Total restarts: {restart_count}")
-
